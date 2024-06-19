@@ -5,6 +5,13 @@ ENV PYTHONUNBUFFERED 1
 
 WORKDIR /usr/src/app
 
+RUN apt-get update && apt-get install -y \
+    python3-dev \
+    default-libmysqlclient-dev \
+    build-essential \
+    pkg-config \
+    && rm -rf /var/lib/apt/lists/*
+
 COPY ./requirements.txt /tmp/requirements.txt
 
 RUN pip install --upgrade pip && \
