@@ -1,3 +1,10 @@
+"""
+테스트 케이스:
+1. 유저 모델과 매니저의 내부 동작 성공 테스트.
+2. 유저 이메일 표준화하는 성공 테스트.
+3. 유저 이메일 빈값일 때, EmailRequiredException 발생 에러 테스트.
+"""
+
 from django.contrib.auth import get_user_model
 
 from rest_framework.test import (
@@ -24,7 +31,7 @@ class UserModelTests(APITestCase):
 
     def test_user_email_normalized_success(self):
         """
-        유저 이메일 표준화하는 테스트.
+        유저 이메일 표준화하는 성공 테스트.
         """
         sample_emails = [
             ['Test1@ExAmple.com', 'Test1@example.com'],
@@ -38,7 +45,7 @@ class UserModelTests(APITestCase):
 
     def test_user_without_email_raises_error(self):
         """
-        유저 이메일 빈값일 때, EmailRequiredException 발생 테스트.
+        유저 이메일 빈값일 때, EmailRequiredException 발생 에러 테스트.
         """
         with self.assertRaises(EmailRequiredException):
             get_user_model().objects.create_user('', 'Test1234!')
