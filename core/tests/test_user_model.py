@@ -5,11 +5,10 @@
 3. 유저 이메일 빈값일 때, EmailRequiredException 발생 에러 테스트.
 """
 
+
 from django.contrib.auth import get_user_model
 
-from rest_framework.test import (
-    APITestCase
-)
+from rest_framework.test import APITestCase
 
 from users.exceptions import EmailRequiredException
 
@@ -43,7 +42,7 @@ class UserModelTests(APITestCase):
             user = get_user_model().objects.create_user(email, 'Test1234!')
             self.assertEqual(user.email, normalized)
 
-    def test_user_without_email_raises_error(self):
+    def test_user_without_email_error(self):
         """
         유저 이메일 빈값일 때, EmailRequiredException 발생 에러 테스트.
         """
