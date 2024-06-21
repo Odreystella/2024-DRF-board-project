@@ -30,6 +30,6 @@
 
 - $ `docker compose exec -it db /bin/sh`
 - $ `mysql -u root -p`
-- $ `GRANT ALL PRIVILEGES ON `test_vivadev`.* TO 'vivadev'@'%';`
+- $ `GRANT ALL PRIVILEGES ON 'test_vivadev'.* TO 'vivadev'@'%';`
 - $ `FLUSH PRIVILEGES;`
 - $ `SHOW GRANTS FOR 'vivadev'@'%';`
