@@ -47,3 +47,13 @@ class User(AbstractBaseUser, Shared):
     USERNAME_FIELD = 'email'
 
     objects = UserManager()
+
+
+class Post(Shared):
+    """
+    게시글 모델.
+    """
+    title = models.CharField(max_length=100)
+    content = models.TextField()  # 이모지 사용 가능
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    view_count = models.IntegerField(default=0)
