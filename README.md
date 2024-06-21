@@ -1,5 +1,8 @@
 # 2024-DRF-board-project
 
+## 🌈 API 명세서
+- [포스트맨 API 명세서](https://documenter.getpostman.com/view/18212819/2sA3XWbHvJ)
+
 ## 🌈 설치 및 실행 방법
 1. `.env` 파일 추가한다.
     ```shell
