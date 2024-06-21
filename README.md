@@ -46,27 +46,27 @@
 .
 ├── config
 │   ├── __init__.py
-│   ├── __pycache__
 │   ├── asgi.py
 │   ├── settings.py
 │   ├── urls.py
 │   └── wsgi.py
 ├── core
 │   ├── __init__.py
-│   ├── __pycache__
 │   ├── admin.py
 │   ├── apps.py
 │   ├── management
+│   │   ├── __init__.py
+│   │   └── commands
+│   │       ├── __init__.py
+│   │       └── wait_for_db.py
 │   ├── migrations
 │   ├── models.py
 │   └── tests
 │       ├── __init__.py
-│       ├── __pycache__
 │       ├── test_commands.py
 │       └── test_user_model.py
 ├── users
 │   ├── __init__.py
-│   ├── __pycache__
 │   ├── admin.py
 │   ├── apps.py
 │   ├── exceptions.py
@@ -74,21 +74,18 @@
 │   ├── services.py
 │   ├── tests
 │   │   ├── __init__.py
-│   │   ├── __pycache__
 │   │   └── test_user_api.py
 │   ├── urls.py
 │   ├── validators.py
 │   └── views.py
 ├── posts
 │   ├── __init__.py
-│   ├── __pycache__
 │   ├── admin.py
 │   ├── apps.py
 │   ├── exceptions.py
 │   ├── serializers.py
 │   ├── tests
 │   │   ├── __init__.py
-│   │   ├── __pycache__
 │   │   └── test_post_api.py
 │   ├── urls.py
 │   └── views.py
