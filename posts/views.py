@@ -103,6 +103,9 @@ class PostRetrieveUpdateDestroyView(generics.GenericAPIView):
         except Post.DoesNotExist:
             raise PostNotFoundException
 
+        if post.is_deleted:
+            raise PostNotFoundException
+
         post.view_count += 1
         post.save(update_fields=['view_count'])
 
