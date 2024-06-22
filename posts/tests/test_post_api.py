@@ -7,6 +7,7 @@
     - 토큰이 없어도 목록이 조회되는 성공 케이스
     - limit, offset의 디폴트는 10, 0 으로 갯수가 10개인지 보여주는 케이스, 데이터가 10개 미만일 수 있음.
     - 탈퇴한 유저의 글인 포함된 경우, 사용자 이름이 '탈퇴한 유저'라고 보여지는 케이스
+    - 삭제된 게시글은 조회되지 않음
 
 2. 게시글 생성 - 인증된 상태에서 요청할 수 있음
     - POST /api/v1/posts
@@ -21,16 +22,20 @@
     - 토큰 없어도 게시글 조회하는 성공 케이스
     - 요청이 들어올떄마다 view_count가 1 증가하는지 확인하는 케이스
     - 탈퇴한 유저의 글인 경우, 사용자 이름이 '탈퇴한 유저'라고 보여지는 케이스
+    - 삭제된 게시글을 조회할 때 PostNotFoundException
+    - post_pk가 존재하지 않는 경우 PostNotFoundException - self.get_object()에서 처리됨
 
 4. 게시글 수정 - 인증된 상태에서 요청할 수 있음
     - PUT /api/v1/posts/{post_id}
     - jwt토큰으로 게시글 제목이나 내용 수정 케이스
     - jwt토큰의 유저와 게시글 작성 유저가 다를 경우 에러 케이스 IsNotMe
+    - post_pk가 존재하지 않는 경우 PostNotFoundException - self.get_object()에서 처리됨
 
 5. 게시글 삭제 - 인증된 상태에서 요청할 수 있음
     - DELETE /api/v1/posts/{post_id}
     - jwt토큰으로 게시글 삭제 케이스
     - jwt토큰의 유저와 게시글 작성 유저가 다를 경우 에러 케이스 IsNotMe
+    - post_pk가 존재하지 않는 경우 PostNotFoundException - self.get_object()에서 처리됨
 """
 
 from django.contrib.auth import get_user_model
